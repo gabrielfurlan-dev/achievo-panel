@@ -22,7 +22,41 @@ app.post('/api/send-mail/welcome-user', (req, res) => {
         name,
         email,
         title: `${name} sua conta criada com sucesso!`,
-        message: `Olá ${name}, sua conta foi criada no Weekly Report com sucesso! Desfrute da ferramenta para gerenciar seus deveres no dia-a-dia.`
+        message: `<!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Bem-vindo ao Weekly Report</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+            <style>
+                .logo-container {
+                    text-align: center;
+                }
+                .logo {
+                    max-width: 200px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 logo-container">
+                        <img src="https://cdn.discordapp.com/attachments/888859138388549662/1149878503790096455/image_32.png" alt="Logo do Weekly Report" class="logo">
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <h1 class="text-center">Bem-vindo ao Weekly Report</h1>
+                        <p>Obrigado por se cadastrar em nosso sistema. Estamos empolgados em tê-lo como parte da nossa comunidade.</p>
+                        <p>Agora você pode começar a criar suas tarefas e acompanhar seu progresso de forma eficiente.</p>
+                        <p>Fique à vontade para explorar todas as funcionalidades do Weekly Report e não hesite em entrar em contato conosco se precisar de ajuda ou tiver alguma dúvida.</p>
+                        <p>Esperamos que nossa plataforma seja útil para você e sua equipe. Boa sorte!</p>
+                    </div>
+                </div>
+            </div>
+        </body>
+        </html>`
     };
 
     const apiUrl = process.env.WEBHOOK_URL;
