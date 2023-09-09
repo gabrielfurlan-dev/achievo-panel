@@ -72,5 +72,5 @@ app.post('/api/send-mail/path-notes', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`[!] Server is listening on port :: ${port}`);
+    console.log(`[!] The server is listening on port :: ${port}`);
 });
