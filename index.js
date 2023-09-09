@@ -6,6 +6,14 @@ const app = express();
 const port = 2001;
 
 app.use(express.json());
+app.use(cors(
+    {
+        origin: [process.env.PROD_URL, process.env.DEV_URL],
+        methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+        credentials: true,
+        optionsSuccessStatus: 204
+    }
+));
 
 app.post('/api/send-mail/welcome-user', (req, res) => {
     const { name, email, title, message, key } = req.body;
@@ -70,6 +78,7 @@ app.post('/api/send-mail/path-notes', (req, res) => {
             res.status(500).json({ error: 'Internal server error' });
         });
 });
+
 
 app.listen(port, () => {
     console.log(`[!] Server is listening on port :: ${port}`);
